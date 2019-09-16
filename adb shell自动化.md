@@ -28,3 +28,7 @@
   - 系统设置的java的版本是11，但android.bat用的是8，这没有冲突的，在android.bat指定Java版本即可
   - swt报错：网上说法一般是ANDROID_SWT没有在path设置变量
   - 解决完以上，一般可以打开SDK Manager.exe
+  ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/SDK%20manager.PNG)
+###### SDK 无法下载或者下载很慢
+- 左上角Tools->Options: 记得勾选Force，下载的server填mirrors.neusoft.edu.cn，端口80
+![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/options.PNG)
