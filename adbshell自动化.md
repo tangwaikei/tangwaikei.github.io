@@ -73,6 +73,7 @@
  adb push D:\jar\LvmamaXmlKit.jar /data/local/tmp/
  ```
  3. 重新打开uiautomatorviewer.bat,时间久耐心要等待加载
- ![]()
+ ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/uiautomatorviewer.PNG)
+ 4. 可以打开任何的APP并且解析xml了
  
  
