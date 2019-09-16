@@ -27,7 +27,6 @@
   set java_exe=D:\Java\jdk-1.8\bin\java.exe
   ```
   - 系统设置的java的版本是11，但android.bat用的是8，这没有冲突的，在android.bat指定Java版本即可
-  - swt报错：网上说法一般是ANDROID_SWT没有在path设置变量
   - 解决完以上，一般可以打开SDK Manager.exe
   ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/SDK%20manager.PNG)
 ##### SDK下载内容
@@ -47,7 +46,10 @@
   set java_exe=D:\Java\jdk-1.8\bin\java.exe
   ```
  - 闪退：用JDK 8 
+ - 无法初始化主类【swt报错】：网上说法一般是ANDROID_SWT没有在path设置变量,参考文章：https://blog.csdn.net/kally001/article/details/81111285
+ ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/%E6%97%A0%E6%B3%95%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%BB%E7%B1%BB.PNG)
  - 打开界面后dump发现会报错:Unexpected error while obtaining UI hierarchy
  ![](https://img2018.cnblogs.com/blog/1524273/201905/1524273-20190531135533363-1994563879.png)
- ###### 这个时候仍然用的是Android9的真机测试，所有APP只有微信可以成功，其他都会报错
+ ###### 这个时候仍然用的是Android9的真机测试，所有APP只有微信可以成功，其他都会报错。尝试了很多方法，还是只有微信可以
+ ##### 
  
