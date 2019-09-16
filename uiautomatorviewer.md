@@ -1,4 +1,4 @@
-# adb shell自动化
+# uiautomatorviewer 安装教程
 ##### 环境，版本，设置说明：
 - 电脑：windows10 64位
 - 真机：小米 
