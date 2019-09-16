@@ -29,6 +29,10 @@
   - swt报错：网上说法一般是ANDROID_SWT没有在path设置变量
   - 解决完以上，一般可以打开SDK Manager.exe
   ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/SDK%20manager.PNG)
+###### SDK下载内容
+![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/%E4%B8%8B%E8%BD%BD%E5%86%85%E5%AE%B91.PNG)
+![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/%E4%B8%8B%E8%BD%BD%E5%86%85%E5%AE%B92.PNG)
+![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/%E4%B8%8B%E8%BD%BD%E5%86%85%E5%AE%B93.PNG)
 ###### SDK 无法下载或者下载很慢
 - 左上角Tools->Options: 记得勾选Force，下载的server填mirrors.neusoft.edu.cn，端口80
 ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/options.PNG)
