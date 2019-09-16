@@ -50,6 +50,29 @@
  ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/%E6%97%A0%E6%B3%95%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%BB%E7%B1%BB.PNG)
  - 打开界面后dump发现会报错:Unexpected error while obtaining UI hierarchy
  ![](https://img2018.cnblogs.com/blog/1524273/201905/1524273-20190531135533363-1994563879.png)
- ###### 这个时候仍然用的是Android9的真机测试，所有APP只有微信可以成功，其他都会报错。尝试了很多方法，还是只有微信可以
- ##### 
+ ##### 这个时候仍然用的是Android9的真机测试，所有APP只有微信可以成功，其他都会报错。尝试了很多方法，还是只有微信可以
+ ##### 死马当活马医
+ - 网上搜了很多之后，这句话是在dumpWindowHierarchy函数里抛出的，于是将D:\software\Android\android-sdk_r24.4.1-windows\android-sdk-windows\tools\lib的uiautomatorviewer.jar反编译之后研究了一下
+ ```
+  public void  [More ...] dumpWindowHierarchy(String fileName) {
+        AccessibilityNodeInfo root = getAutomatorBridge().getQueryController().getAccessibilityRootNode();
+        if(root != null) {
+            AccessibilityNodeInfoDumper.dumpWindowToFile(
+                    root, new File(new File(Environment.getDataDirectory(),
+                            "local/tmp"), fileName));
+        }
+    }
+ ```
+ - uiautomatorview工作原理是：先用Uidevice 获取截图，然后用dumpWindowHierarchy来dump解析成xml
+ - 错误的原因：官网默认的地址是/data/local/tmp但又增加了local/tmp/的目录，也就是/data/local/tmp/local/tmp/ 
+ - 详细的研究参考文章：https://blog.csdn.net/itfootball/article/details/22683999
+ ##### 解决方法：https://github.com/yaming116/uiautomatorview
+ 1. 下载修复了路径bug的新uiautomatorviewer.jar来替换旧的，建议旧的jar包做个备份,地址${ANDROID_HOME}/tools/lib下的uiautomatorviewer.jar
+ 2. 将LvmamaXmlKit.jar push 到手机的/data/local/tmp/
+ ```
+ adb push D:\jar\LvmamaXmlKit.jar /data/local/tmp/
+ ```
+ 3. 重新打开uiautomatorviewer.bat,时间久耐心要等待加载
+ ![]()
+ 
  
