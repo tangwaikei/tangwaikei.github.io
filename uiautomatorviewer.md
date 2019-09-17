@@ -23,6 +23,7 @@
   ```
   把set java_exe=
   call lib\find_java.bat
+  if not defined java_exe goto :EOF
   改成
   set java_exe=D:\Java\jdk-1.8\bin\java.exe
   ```
@@ -42,6 +43,7 @@
 ```
   把set java_exe=
   call lib\find_java.bat
+  if not defined java_exe goto :EOF
   改成
   set java_exe=D:\Java\jdk-1.8\bin\java.exe
   ```
