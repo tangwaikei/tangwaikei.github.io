@@ -112,3 +112,6 @@ git remote show origin 查看远程仓库的信息
 ##### 命令行  
 - git checkout -b new_branch 创建new_branch新分支，并切换到new_brach
 - git branch -d new_branch 删除new_branch分支【此时不在new_branch分支上】  
+- git add 在解决冲突之后要暂存，标记冲突已解决
+- git branch --merged 查看哪些分支已经合并到当前分支
+- git branch --no-merged 查看所有包含未合并工作的分支  
