@@ -11,14 +11,14 @@ url = ssh://git@github.com/tangwaikei/Hogwarts_Online2.git
 ```
 4. 提交本地的修改
 ```
-git commit -a -m 'commit'
+git add 2.txt
+git commit -m 'commit'
 ```
 5. 推送到fork的项目
 ```
 git push origin master
 ```
 ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/git-push.PNG)
-
 6. 总结:其实可以clone自己项目的地址，比如git@github.com/tangwaikei/Hogwarts_Online2.git 这样可以不用修改config
 直接在本地仓库修改，提交之后推送到远端
 ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%96%B9%E6%B3%95.PNG)
@@ -40,10 +40,26 @@ git pull = git fetch + git merge
 - 本地工作目录
 - 临时仓库是一个文件，保存了下次将提交的文件列表信息，一般在 Git 仓库目录中。 有时候也被称作‘索引’：将文件的快照放入暂存区域
 - git仓库
+![](https://progit.bootcss.com/images/areas.png)
+git add 是跟踪文件，将文件放进快照流里
+```
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+    new file:   README
+```
+只要在 Changes to be committed 这行下面的，就说明是已暂存状态
 ### git命令行
 #### 初始化仓库
 1. git clone
+- git 支持 https://, git://, ssh传输协议, 比如user@server:path/to/repo.git
 2. git init , git add 2.txt, git commit -m '2.txt'
+#### 查看差异
+- git diff 查看工作目录和暂存区域快照之间的差异，也就是修改后还没有暂存的变化。只看到未暂存的改动，不是自上次以来所有的改动
+- git diff --cached 查看已经暂存但没有提交的快照
+
 #### 别名
 - git config --global alias.st status: git st = git status
 - git config --global alias.c-box checkout new-box: git c-box = git checkout new-box
