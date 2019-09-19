@@ -38,5 +38,13 @@ git pull = git fetch + git merge
 - git所有的操作都是添加，即使删除文件，在git看来也是一种添加
 #### git工作区域
 - 本地工作目录
-- 临时仓库
+- 临时仓库是一个文件，保存了下次将提交的文件列表信息，一般在 Git 仓库目录中。 有时候也被称作‘索引’：将文件的快照放入暂存区域
 - git仓库
+### git命令行
+#### 初始化仓库
+1. git clone
+2. git init , git add 2.txt, git commit -m '2.txt'
+#### 别名
+- git config --global alias.st status: git st = git status
+- git config --global alias.c-box checkout new-box: git c-box = git checkout new-box
+
