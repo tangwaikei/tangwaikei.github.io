@@ -96,5 +96,19 @@ git remote show origin 查看远程仓库的信息
 - git config --global alias.c-box checkout new-box: git c-box = git checkout new-box
 - 执行外部命令，而不是一个 Git 子命令。 如果是那样的话，可以在命令前面加入 ! 符号
 #### 推送到远程仓库 push
-### 分支原理
-#### 暂存会将文件计算校验和，将当前版本的文件快照保存在git仓库 
+### 分支
+#### 分支原理：暂存会将文件计算校验和，将当前版本的文件快照保存在git仓库 
+- git commit时，Git 会先计算每一个子目录（本例中只有项目根目录）的校验和，然后在 Git 仓库中这些校验和保存为树对象。 随后，Git 便会创建一个提交对象，它除了包含上面提到的那些信息外，还包含指向这个树对象（项目根目录）的指针 
+- Git 仓库中有五个对象：三个 blob 对象（保存着文件快照）、一个树对象（记录着目录结构和 blob 对象索引）以及一个提交对象（包含着指向前述树对象的指针和所有提交信息）
+![](https://progit.bootcss.com/images/commit-and-tree.png)
+#### 分支新建与合并  
+##### HEAD  
+- HEAD 指向当前所在的本地分支  
+- HEAD随着提交自动向前移动
+![](https://progit.bootcss.com/images/checkout-master.png)
+##### 快进fast-forward
+- 由于当前 master 分支所指向的提交是你当前提交（有关 hotfix 的提交）的直接上游，所以 Git 只是简单的将指针向前移动。 换句话说，当你试图合并两个分支时，如果顺着一个分支走下去能够到达另一个分支，那么 Git 在合并两者的时候，只会简单的将指针向前推进（指针右移），因为这种情况下的合并操作没有需要解决的分歧
+![](https://progit.bootcss.com/images/advance-testing.png)  
+##### 命令行  
+- git checkout -b new_branch 创建new_branch新分支，并切换到new_brach
+- git branch -d new_branch 删除new_branch分支【此时不在new_branch分支上】  
