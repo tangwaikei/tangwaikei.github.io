@@ -21,10 +21,10 @@ git push origin master
 6. 总结:其实可以clone自己项目的地址，比如git@github.com/tangwaikei/Hogwarts_Online2.git 这样可以不用修改config
 直接在本地仓库修改，提交之后推送到远端
 ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%96%B9%E6%B3%95.PNG)
-```
 #### 发起pr,等待合并
 1. 打开自己的Hogwarts_Online2项目下,发起pull request,通知项目人接收
 ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/pr.png)
 2. 写明修改的主题，提交之后等待合并
 #### 同步fork的代码到本地
-1.```git pull ```
+1. ```git pull origin master```
+git pull = git fetch + git merge 
