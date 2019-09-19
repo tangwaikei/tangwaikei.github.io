@@ -52,15 +52,44 @@ Changes to be committed:
 ```
 只要在 Changes to be committed 这行下面的，就说明是已暂存状态
 ### git命令行
-#### 初始化仓库
+#### 初始化仓库 init clone
 1. git clone
-- git 支持 https://, git://, ssh传输协议, 比如user@server:path/to/repo.git
+  - git 支持 https://, git://, ssh传输协议, 比如user@server:path/to/repo.git
 2. git init , git add 2.txt, git commit -m '2.txt'
-#### 查看差异
+#### 查看差异 diff
 - git diff 查看工作目录和暂存区域快照之间的差异，也就是修改后还没有暂存的变化。只看到未暂存的改动，不是自上次以来所有的改动
 - git diff --cached 查看已经暂存但没有提交的快照
-
-#### 别名
+#### 提交 commit
+- 提交时未暂存的仍然保持已修改状态，可下次提交时纳入版本管理
+- git commit -a 将已经跟踪过的文件（这个文件是已经存在的文件即可）暂存起来一并提交
+#### 删除文件 rm
+1. 工作目录删除 rm xxx 
+2. git rm xxx 已经提交到仓库
+```
+$ git st
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+        deleted:    3.txt
+```
+#### 查看提交历史 log
+- 上面的原理提到git绝大多数操作都只需要访问本地文件和资源，所以git log 不需要访问外网
+- git log -p -2 查看最近2次提交的内容差异
+- git log --stat 查看每次提交的简略统计信息
+- 其他的提交记录建议用GUI图形工具
+#### 撤销
+- git commit --amend 提交完之后漏掉添加几个文件，或者需要重写提交信息，将暂存区的重新提交【前提：提交完之后立马执行该命令】
+- 取消暂存的文件 git reset HEAD <file>
+- 撤销对文件的修改 git checkout -- <file> 对file的任何修改都会消失
+- 已经提交的文件可以恢复，但未提交的文件丢失后可能找不回
+#### 查看远程仓库 git remote -v
+```
+origin	https://github.com/schacon/ticgit (fetch)
+origin	https://github.com/schacon/ticgit (push)
+```
+#### 别名 alias 
 - git config --global alias.st status: git st = git status
 - git config --global alias.c-box checkout new-box: git c-box = git checkout new-box
 
