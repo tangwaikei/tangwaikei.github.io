@@ -127,4 +127,10 @@ git remote show origin 查看远程仓库的信息
 #### 远程分支
 ##### 添加远程仓库
 - git remote add 命令添加一个新的远程仓库引用到当前的项目  
-  
+- git fetch teamone 来抓取远程仓库 teamone 有而本地没有的数据。 因为那台服务器上现有的数据是 origin 服务器上的一个子集，所以 Git 并不会抓取数据而是会设置远程跟踪分支 teamone/master 指向 teamone 的 master 分支  
+![](https://progit.bootcss.com/images/remote-branches-5.png)
+- git fetch origin 在本地生成一个远程分支 origin/serverfix，指向服务器的 serverfix 分支的引用
+  抓取到新的远程跟踪分支时，本地不会自动生成一份可编辑的副本（拷贝）。 换一句话说，这种情况下，不会有一个新的 serverfix 分支 - 只有一个不可以修改的 origin/serverfix 指针
+- git checkout -b branch remote/branch 建立branch并切换到该分支上
+### 变基
+#### 呃  
