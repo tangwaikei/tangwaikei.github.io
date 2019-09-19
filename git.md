@@ -89,7 +89,12 @@ Changes to be committed:
 origin	https://github.com/schacon/ticgit (fetch)
 origin	https://github.com/schacon/ticgit (push)
 ```
+git remote show origin 查看远程仓库的信息  
+当你想分享你的项目时，必须将其推送到上游。 这个命令很简单：git push [remote-name] [branch-name]
 #### 别名 alias 
 - git config --global alias.st status: git st = git status
 - git config --global alias.c-box checkout new-box: git c-box = git checkout new-box
-
+- 执行外部命令，而不是一个 Git 子命令。 如果是那样的话，可以在命令前面加入 ! 符号
+#### 推送到远程仓库 push
+### 分支原理
+#### 暂存会将文件计算校验和，将当前版本的文件快照保存在git仓库 
