@@ -132,5 +132,8 @@ git remote show origin 查看远程仓库的信息
 - git fetch origin 在本地生成一个远程分支 origin/serverfix，指向服务器的 serverfix 分支的引用
   抓取到新的远程跟踪分支时，本地不会自动生成一份可编辑的副本（拷贝）。 换一句话说，这种情况下，不会有一个新的 serverfix 分支 - 只有一个不可以修改的 origin/serverfix 指针
 - git checkout -b branch remote/branch 建立branch并切换到该分支上
+##### 跟踪远程分支
+- 将远程分支拉取到本地的新分支：git checkout -b 本地分支 远程分支/分支名 git checkout -b box origin/box
+- 远程分支 checkout 出来的本地分支，称为 跟踪分支 (tracking branch)。跟踪分支是一种和某个远程分支有直接联系的本地分支。在跟踪分支里输入 git push，Git 会自行推断应该向哪个服务器的哪个分支推送数据。同样，在这些分支里运行 git pull 会获取所有远程索引，并把它们的数据都合并到本地分支中来。
 ### 变基
 #### 呃  
