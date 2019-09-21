@@ -22,6 +22,28 @@ git push origin master
 6. 总结:其实可以clone自己项目的地址，比如git@github.com/tangwaikei/Hogwarts_Online2.git 这样可以不用修改config
 直接在本地仓库修改，提交之后推送到远端
 ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%96%B9%E6%B3%95.PNG)
+#### 建立仓库
+git clone ssh://git@47.95.238.18:10022/tangwaikei/tangwaikei.git
+cd tangwaikei
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin master
+
+Push an existing folder
+cd existing_folder
+git init
+git remote add origin ssh://git@47.95.238.18:10022/tangwaikei/tangwaikei.git
+git add .
+git commit -m "Initial commit"
+git push -u origin master
+
+Push an existing Git repository
+cd existing_repo
+git remote rename origin old-origin
+git remote add origin ssh://git@47.95.238.18:10022/tangwaikei/tangwaikei.git
+git push -u origin --all
+git push -u origin --tags
 #### 发起pr,等待合并
 1. 打开自己的Hogwarts_Online2项目下,发起pull request,通知项目人接收
 ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/pr.png)
