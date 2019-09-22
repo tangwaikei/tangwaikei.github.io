@@ -22,28 +22,6 @@ git push origin master
 6. 总结:其实可以clone自己项目的地址，比如git@github.com/tangwaikei/Hogwarts_Online2.git 这样可以不用修改config
 直接在本地仓库修改，提交之后推送到远端
 ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%96%B9%E6%B3%95.PNG)
-#### 建立仓库
-git clone ssh://git@47.95.238.18:10022/tangwaikei/tangwaikei.git
-cd tangwaikei
-touch README.md
-git add README.md
-git commit -m "add README"
-git push -u origin master
-
-Push an existing folder
-cd existing_folder
-git init
-git remote add origin ssh://git@47.95.238.18:10022/tangwaikei/tangwaikei.git
-git add .
-git commit -m "Initial commit"
-git push -u origin master
-
-Push an existing Git repository
-cd existing_repo
-git remote rename origin old-origin
-git remote add origin ssh://git@47.95.238.18:10022/tangwaikei/tangwaikei.git
-git push -u origin --all
-git push -u origin --tags
 #### 发起pr,等待合并
 1. 打开自己的Hogwarts_Online2项目下,发起pull request,通知项目人接收
 ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/pr.png)
@@ -78,9 +56,34 @@ Changes to be committed:
 1. git clone
   - git 支持 https://, git://, ssh传输协议, 比如user@server:path/to/repo.git
 2. git init , git add 2.txt, git commit -m '2.txt'
+#### 建立仓库
+```
+git clone ssh地址
+cd tangwaikei
+touch README.md
+git add README.md
+git commit -m "add README"
+git push -u origin master
+
+Push an existing folder
+cd existing_folder
+git init
+git remote add origin ssh地址
+git add .
+git commit -m "Initial commit"
+git push -u origin master
+
+Push an existing Git repository
+cd existing_repo
+git remote rename origin old-origin
+git remote add origin ssh地址
+git push -u origin --all
+git push -u origin --tags
+```
 #### 查看差异 diff
 - git diff 查看工作目录和暂存区域快照之间的差异，也就是修改后还没有暂存的变化。只看到未暂存的改动，不是自上次以来所有的改动
 - git diff --cached 查看已经暂存但没有提交的快照
+- vimdiff 交互式
 #### 提交 commit
 - 提交时未暂存的仍然保持已修改状态，可下次提交时纳入版本管理
 - git commit -a 将已经跟踪过的文件（这个文件是已经存在的文件即可）暂存起来一并提交
@@ -96,16 +99,17 @@ Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
         deleted:    3.txt
 ```
-#### 查看提交历史 log
-- 上面的原理提到git绝大多数操作都只需要访问本地文件和资源，所以git log 不需要访问外网
-- git log -p -2 查看最近2次提交的内容差异
-- git log --stat 查看每次提交的简略统计信息
-- 其他的提交记录建议用GUI图形工具
 #### 撤销
 - git commit --amend 提交完之后漏掉添加几个文件，或者需要重写提交信息，将暂存区的重新提交【前提：提交完之后立马执行该命令】
 - 取消暂存的文件 git reset HEAD <file>
 - 撤销对文件的修改 git checkout -- <file> 对file的任何修改都会消失
 - 已经提交的文件可以恢复，但未提交的文件丢失后可能找不回
+  
+#### 查看提交历史 log
+- 上面的原理提到git绝大多数操作都只需要访问本地文件和资源，所以git log 不需要访问外网
+- git log -p -2 查看最近2次提交的内容差异
+- git log --stat 查看每次提交的简略统计信息
+- 其他的提交记录建议用GUI图形工具
 #### 查看远程仓库 git remote -v
 ```
 origin	https://github.com/schacon/ticgit (fetch)
@@ -118,6 +122,8 @@ git remote show origin 查看远程仓库的信息
 - git config --global alias.c-box checkout new-box: git c-box = git checkout new-box
 - 执行外部命令，而不是一个 Git 子命令。 如果是那样的话，可以在命令前面加入 ! 符号
 #### 推送到远程仓库 push
+在当前分支git push --set-upstream origin branch
+执行完之后可以直接 git push 默认推送到origin/branch上
 ### 分支
 #### 分支原理：暂存会将文件计算校验和，将当前版本的文件快照保存在git仓库 
 - git commit时，Git 会先计算每一个子目录（本例中只有项目根目录）的校验和，然后在 Git 仓库中这些校验和保存为树对象。 随后，Git 便会创建一个提交对象，它除了包含上面提到的那些信息外，还包含指向这个树对象（项目根目录）的指针 
@@ -136,7 +142,28 @@ git remote show origin 查看远程仓库的信息
 - git branch -d new_branch 删除new_branch分支【此时不在new_branch分支上】  
 - git add 在解决冲突之后要暂存，标记冲突已解决
 - git branch --merged 查看哪些分支已经合并到当前分支
-- git branch --no-merged 查看所有包含未合并工作的分支  
+- git branch --no-merged 查看所有包含未合并工作的分支 
+- git merge --abort 放弃合并
+- git log --graph --all --decorate=short 查看
+##### 本地生成远程分支[操作前远程分支不存在]
+```
+git checkout -b new-branch origin/branch
+git push origin branch
+git branch --set-upstream-to=origin/branch
+git pull origin branch
+```
+##### 本地创建远程分支[操作前远程分支已存在]
+```
+git checkout -b branch origin/branch
+```
+##### 删除本地分支
+```
+git checkout master
+git branch -d branch
+```
+##### 拉取更新远程分支
+git pull origin
+git checkout 到本地没有的分支，可以直接push 到非保护分支
 #### 分支开发工作流  
 ##### 长期分支的开发周期
 - 稳定分支的指针总是在提交历史中落后一大截，而前沿分支的指针往往比较靠前  
@@ -158,4 +185,5 @@ git remote show origin 查看远程仓库的信息
 - 将远程分支拉取到本地的新分支：git checkout -b 本地分支 远程分支/分支名 git checkout -b box origin/box
 - 远程分支 checkout 出来的本地分支，称为 跟踪分支 (tracking branch)。跟踪分支是一种和某个远程分支有直接联系的本地分支。在跟踪分支里输入 git push，Git 会自行推断应该向哪个服务器的哪个分支推送数据。同样，在这些分支里运行 git pull 会获取所有远程索引，并把它们的数据都合并到本地分支中来。
 ### 变基
+### 标签
 #### 呃  
