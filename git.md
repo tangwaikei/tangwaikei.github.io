@@ -132,6 +132,7 @@ git remote show origin 查看远程仓库的信息
 #### 分支新建与合并  
 ##### HEAD  
 - HEAD 指向当前所在的本地分支  
+- HEAD~4最近4次
 - HEAD随着提交自动向前移动
 ![](https://progit.bootcss.com/images/checkout-master.png)
 ##### 快进fast-forward
@@ -175,7 +176,8 @@ git checkout 到本地没有的分支，可以直接push 到非保护分支
 ##### 分布式Git
 #### 远程分支
 ##### 添加远程仓库
-- git remote add 命令添加一个新的远程仓库引用到当前的项目  
+- git remote add 命令添加一个
+新的远程仓库引用到当前的项目  
 - git fetch teamone 来抓取远程仓库 teamone 有而本地没有的数据。 因为那台服务器上现有的数据是 origin 服务器上的一个子集，所以 Git 并不会抓取数据而是会设置远程跟踪分支 teamone/master 指向 teamone 的 master 分支  
 ![](https://progit.bootcss.com/images/remote-branches-5.png)
 - git fetch origin 在本地生成一个远程分支 origin/serverfix，指向服务器的 serverfix 分支的引用
@@ -185,5 +187,13 @@ git checkout 到本地没有的分支，可以直接push 到非保护分支
 - 将远程分支拉取到本地的新分支：git checkout -b 本地分支 远程分支/分支名 git checkout -b box origin/box
 - 远程分支 checkout 出来的本地分支，称为 跟踪分支 (tracking branch)。跟踪分支是一种和某个远程分支有直接联系的本地分支。在跟踪分支里输入 git push，Git 会自行推断应该向哪个服务器的哪个分支推送数据。同样，在这些分支里运行 git pull 会获取所有远程索引，并把它们的数据都合并到本地分支中来。
 ### 变基
+#### 合并多次的提交记录
+```
+git rebase -i HEAD~4 合并最近的 4 次提交纪录
+```
+#### 分支合并
+但篡改了记录，小心使用
+#### 参考
+http://jartto.wang/2018/12/11/git-rebase/
 ### 标签
 #### 呃  
