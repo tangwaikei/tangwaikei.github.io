@@ -78,5 +78,5 @@
  ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/uiautomatorviewer.PNG)
  4. 可以打开任何的APP并且解析xml了
  ## 安装appium
- https://bitbucket.org/appium/appium.app/downloads/ 下载最新的
+ https://bitbucket.org/appium/appium.app/downloads/ 下载最新的AppiumForWindows_1_4_16_1.zip
  
