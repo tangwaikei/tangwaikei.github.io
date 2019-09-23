@@ -84,7 +84,7 @@
  ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F.PNG)
  #### 启动appium
  ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/%E5%90%AF%E5%8A%A8appium.PNG)
- #### appium-doctor
+ #### 检查appium所需的环境是否OK:appium-doctor
  ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/doctor.PNG)
  #### 安装appium 客户端
  appium client是对webdriver原生api的一些扩展和封装，用于抓取app上的定位信息
