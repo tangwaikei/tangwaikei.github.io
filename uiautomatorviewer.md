@@ -78,5 +78,15 @@
  ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/uiautomatorviewer.PNG)
  4. 可以打开任何的APP并且解析xml了
  ## 安装appium
+ #### 安装appium服务端
  https://bitbucket.org/appium/appium.app/downloads/ 下载最新的AppiumForWindows_1_4_16_1.zip
- 
+ #### 配置系统变量路径
+ ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F.PNG)
+ #### 启动appium
+ ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/%E5%90%AF%E5%8A%A8appium.PNG)
+ #### appium-doctor
+ ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/doctor.PNG)
+ #### 安装appium 客户端
+ appium client是对webdriver原生api的一些扩展和封装，用于抓取app上的定位信息
+ ![](https://github.com/tangwaikei/tangwaikei.github.io/blob/master/img/client.PNG)
+ https://juejin.im/post/5c25c6b5f265da612c5df54c
